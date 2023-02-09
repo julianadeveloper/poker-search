@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  front:
+    build: .
+    entrypoint: sh ./.docker/entrypoint.sh
+    container_name: poker-interface
+    ports:
+      - 8080:8080
+    restart: always
+    tty: true
+    volumes:
+      - ./:/usr/poker-interface/app
+    
+  
+    
+
