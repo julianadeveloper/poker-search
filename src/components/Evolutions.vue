@@ -14,7 +14,7 @@ export default defineComponent({
 setup() {
     const apiService = new ApiService()
     let limit = 10; 
-    let offset = 10;
+    let offset = limit + limit;
     return { apiService, limit, offset}
 },
 methods:{
