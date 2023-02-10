@@ -1,36 +1,53 @@
 <template>
   <div>
     <h3>Evoluções</h3>
-<button @click.prevent="showPokemons(limit, 10)">Proximo</button>
+    <p>{{ pokemons }}</p>
+    <p></p>
+    <p></p>
+    <button @click.prevent="toPrevious">Menos</button>
+    <button @click.prevent="toNext">Proximo</button>
+
+    <div>{{}}</div>
   </div>
 </template>
 
 <script lang="ts">
 import { ApiService } from '@/service/api';
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'PokemonsEvolutions',
-setup() {
+  data() {
     const apiService = new ApiService()
-    let limit = 10; 
-    let offset = limit + limit;
-    return { apiService, limit, offset}
-},
-methods:{
-  searchEvolution(id: number){
-    this.apiService.findPokemonEvolutions(id)
+    return { apiService, limit: 10, nextOffset: 10, previousOffset: 0, pokemons: [], offset: 0 }
   },
-  showPokemons(limit: number, offset: number){
-    this.limit = limit + 10;
-    this.offset = offset + limit;
-    this.apiService.listAll(limit, offset)
-  
-  }
-},
-// mounted(){
-//  console.log(this.showPokemons())
-// }
+  methods: {
+
+    // showPokemons(limit: number, offset: number){
+    //   this.apiService.listAll(this.offset, this.limit)
+
+    // },
+    async toNext() {
+      this.offset = this.nextOffset;
+      this.nextOffset += 10;
+      this.previousOffset += 10;
+
+      let response = await this.apiService.listAll(this.offset, this.limit)
+      this.pokemons = response.data.results;
+
+    },
+    async toPrevious() {
+      this.offset = this.previousOffset;
+      this.nextOffset -= 10;
+      this.previousOffset -= 10;
+      let response = await this.apiService.listAll(this.offset, this.limit)
+      this.pokemons = response.data.results;
+
+    }
+  },
+  // mounted(){
+  // this.showPokemons()
+  // }
 })
 
 
