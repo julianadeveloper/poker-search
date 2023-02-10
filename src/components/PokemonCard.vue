@@ -46,15 +46,6 @@ export default defineComponent({
           name: "",
           url: "",
         }],
-      game_indices: [
-        {
-          game_index: 0,
-          version: {
-            name: "",
-            url: "",
-          },
-        }
-      ],
       location_area_encounters: "",
       moves: [
         {

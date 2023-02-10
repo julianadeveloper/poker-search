@@ -9,4 +9,15 @@ export class ApiService {
 async  findPokemonByName(name : string){
  return await this.api.get(`/pokemon/${name}`)
 
-}}
+}
+
+
+async findPokemonEvolutions(id: number){
+  return await this.api.get(`/evolution-chain/${id}`)
+}
+
+listAll(limit:number, offset: number){
+  return this.api.get(`/pokemon/?limit=${limit}&offset=${offset}`)
+}
+}
+

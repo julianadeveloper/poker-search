@@ -22,15 +22,6 @@ export interface Pokemon {
       url: string;
     }
   ];
-  game_indices: [
-    {
-      game_index: number;
-      version: {
-        name: string;
-        url: string;
-      };
-    }
-  ];
   location_area_encounters: string;
   moves: [
     {
