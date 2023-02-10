@@ -6,8 +6,8 @@ export class ApiService {
     baseURL: "https://pokeapi.co/api/v2/",
   });
 
-async  findPokemonByName(name : string){
- return await this.api.get(`/pokemon/${name}`)
+async  findPokemonByName(param : string){
+ return await this.api.get(`/pokemon/${param}`)
 
 }
 

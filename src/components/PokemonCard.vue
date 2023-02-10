@@ -9,8 +9,8 @@
     </div>
       <p>{{ pokemon.id }}</p>
     </div>
-    <input v-model="pokemon.name" />
-    <button @click.prevent="findPokemonByName(pokemon.name)">Search</button>
+    <input v-model="pokemon.name"/>
+    <button @click.prevent="findPokemonByIdOrName(pokemon.name)">Search</button>
   </div>
 </template>
 
@@ -79,8 +79,8 @@ export default defineComponent({
   },
 
   methods: {
-    async findPokemonByName(name: string) {
-      const response = await this.apiService.findPokemonByName(name)
+    async findPokemonByIdOrName(param: string) {
+      const response = await this.apiService.findPokemonByName(param)
       return this.pokemon = response.data;
 
     }
