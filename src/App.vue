@@ -1,7 +1,7 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/evolutions">About</router-link>
+    <router-link to="/allpokemons">List All</router-link>
   </nav>
   <router-view/>
 </template>

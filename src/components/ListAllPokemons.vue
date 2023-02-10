@@ -13,10 +13,10 @@
 
 <script lang="ts">
 import { ApiService } from '@/service/api';
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'PokemonsEvolutions',
+  name: 'AllPokemonsList',
   data() {
     const apiService = new ApiService()
     return { apiService, limit: 10, nextOffset: 10, previousOffset: 0, pokemons: [], offset: 0 }
@@ -31,7 +31,6 @@ export default defineComponent({
       this.offset = this.nextOffset;
       this.nextOffset += 10;
       this.previousOffset += 10;
-
       let response = await this.apiService.listAll(this.offset, this.limit)
       this.pokemons = response.data.results;
 
@@ -45,9 +44,9 @@ export default defineComponent({
 
     }
   },
-  // mounted(){
-  // this.showPokemons()
-  // }
+ async mounted(){
+  await this.toPrevious()
+  }
 })
 
 
