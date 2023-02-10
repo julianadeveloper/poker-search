@@ -1,4 +1,4 @@
-//consume api 
+//consumindo a api 
 import axios, { AxiosInstance } from "axios";
 
 export class ApiService {
@@ -6,7 +6,7 @@ export class ApiService {
     baseURL: "https://pokeapi.co/api/v2/",
   });
 
-async  findPokemonByName(){
- return await this.api.get('/pokemon/charizard');
-  }
-}
+async  findPokemonByName(name : string){
+ return await this.api.get(`/pokemon/${name}`)
+
+}}
