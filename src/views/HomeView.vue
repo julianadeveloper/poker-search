@@ -15,3 +15,7 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss">
+@import "@/scss/global.scss";
+
+</style>
