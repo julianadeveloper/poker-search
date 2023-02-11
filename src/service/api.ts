@@ -15,7 +15,9 @@ async  findPokemonByName(param : string){
 async findPokemonEvolutions(id: number){
   return await this.api.get(`/evolution-chain/${id}`)
 }
-
+async findDetailsById(id: number){
+  return await this.api.get(`/characteristic/${id}`)
+}
 listAll(offset: number, limit:number){
   return this.api.get(`/pokemon/?offset=${offset}&limit=${limit}`)
 }
