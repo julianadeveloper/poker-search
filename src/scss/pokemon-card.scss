@@ -1,7 +1,16 @@
-$background--card: rgba(144, 194, 152, 0.918);
 
-
-
+$background-image: transparent;
+$width: 20%;
+$height: 60%;
+$background--color: rgb(230, 238, 240);
+$border: 1px solid rgba(49, 91, 207, 0.637);
 $fonts: 'Poppins', Helvertica, sans-serif;
+$font-size: 1.5rem;
 $primary-color: #39393a;
-$spacing: 1rem
+$spacing: 1rem;
+$margin: 1rem;
+
+$img-pokemon-width: 8rem;
+$responsive-min-width:100%;
+$shadow-card: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
