@@ -23,27 +23,8 @@ export interface Pokemon {
     }
   ];
   location_area_encounters: string;
-  moves: [
-    {
-      move: {
-        name: string;
-        url: string;
-      };
-      version_group_details: [
-        {
-          level_learned_at: number;
-          version_group: {
-            name: string;
-            url: string;
-          };
-          move_learn_method: {
-            name: string;
-            url: string;
-          };
-        }
-      ];
-    }
-  ];
+  stats:[Object];
+
   sprites: {
     front_default: string;
   };
